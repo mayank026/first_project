@@ -41,7 +41,7 @@
             <h3>
                 Select Filters
             </h3>
-            <form method="GET" action="{% url 'tiffin' %}">
+            <form method="GET" action="{% url 'medical_stores' %}">
         
  
               <input name="search" id="search" class="form" type="search" placeholder="Search By Pincode" aria-label="Search">
@@ -52,29 +52,29 @@
         <div class="right">
             
     
-            {% for tiffin in tiffin_list %}
+            {% for medical_stores in medical_stores_list %}
             {% if user.is_authenticated %}                      
-			 <a href="{% url 'tiffindesc' tiffin.pk %}" style="text-decoration: none;color:#404040">
+			 <a href="{% url 'medical_storesdesc' medical_stores.pk %}" style="text-decoration: none;color:#404040">
              {%else%}
                 <a href="{% url 'message' %}"  style="text-decoration: none;color:#404040">
                 {%endif%}
                 <div class="hostel_details">
                     <div class="hostel_image">
-                        <img src='/media/{{tiffin.tiffinservice_images1}}' class="hostel_image" alt="">
+                        <img src='/media/{{medical_stores.medical_storesservice_images1}}' class="hostel_image" alt="">
                     </div>
                     <div class="hostel_detail">
                         
                         <h2>
-                            {{ tiffin.tiffinservice_name }}
+                            {{ medical_stores.medical_storesservice_name }}
                         </h2>
                         <h3>
-                            Monthly Charges:{{ tiffin.tiffinservice_price }} &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Meal Type: {{ tiffin.tiffinservice_mealtype }}
+                            Monthly Charges:{{ medical_stores.medical_storesservice_price }} &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Meal Type: {{ tiffin.tiffinservice_mealtype }}
                         </h3>
                         <h4>
-                            {{ tiffin.tiffinservice_address }}
+                            {{ medical_stores.medical_storesservice_address }}
                         </h4>
                         <h5>
-                            {{ tiffin.tiffinservice_description }}
+                            {{ medical_stores.medical_storesservice_images1_description }}
                         </h5>
                     </div>
                 </div>

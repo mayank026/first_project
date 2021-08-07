@@ -183,29 +183,29 @@ def rental(request):
     return render(request,"display/rental.html",demo2)
 
 
-def tiffin(request):
+def medical_stores(request):
     if request.method == "GET":
         pincode = request.GET.get('search',"")
         if pincode:
-            all_tiffin_name = tiffinservice.objects.filter(tiffinservice_pincode = pincode)
-            if all_tiffin_name:
+            all_medical_stores_name = medical_storesservice.objects.filter(medical_storesservice_pincode = pincode)
+            if all_medical_stores_name:
                 demo = {
-                    'tiffin_list' : all_tiffin_name,
+                    'medical_stores_list' : all_medical_stores_name,
                 }
-                return render(request,"display/tiffin.html",demo)
+                return render(request,"display/medical_stores.html",demo)
             return render(request,"display/pincode_not_found.html")
-        all_tiffin_name = tiffinservice.objects.all()
+        all_medical_stores_name = medical_storesservice.objects.all()
         demo = {
-                    'tiffin_list' : all_tiffin_name,
+                    'medical_stores_list' : all_medical_stores_name,
                 }
-        return render(request,"display/tiffin.html",demo)
+        return render(request,"display/medical_stores.html",demo)
 
     else:
-        all_tiffin_name = tiffinservice.objects.all()
+        all_medical_stores_name = medical_storesservice.objects.all()
         demo2 = {
-                'tiffin_list' : all_tiffin_name,
+                'medical_stores_list' : all_medical_stores_name,
         }
-    return render(request,"display/tiffin.html",demo2)
+    return render(request,"display/medical_stores.html",demo2)
     
 
 def misc(request):
@@ -272,14 +272,14 @@ def hostel_description_page(request, hostel_id):
 	    response = "Hostel with id=" + str(id) + " not found."
 	    return HttpResponse(response)
 
-def tiffin_description_page(request, tiffinservice_id):
+def medical_stores_description_page(request, medical_storesservice_id):
 
-    hostel_detail = tiffinservice.objects.filter(pk=tiffinservice_id)
+    hostel_detail = medical_storesservice.objects.filter(pk=medical_storesservice_id)
     if hostel_detail:
         demo = {
                     'hostel_list' : hostel_detail,
                 }
-        return render(request,"display/tiffin_desc.html",demo)
+        return render(request,"display/medical_stores_desc.html",demo)
     else:
 	    response = "Tiffin Service with id=" + str(id) + " not found."
 	    return HttpResponse(response)
