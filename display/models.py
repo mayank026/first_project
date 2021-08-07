@@ -32,22 +32,22 @@ class hostel(models.Model):
     def __str__(self):
         return self.hostel_name +" " + self.hostel_area 
 
-class  tiffinservice(models.Model):
-    tiffinservice_name=models.CharField(max_length=80, default="")
-    tiffinservice_state=models.CharField(max_length=30, default="")
-    tiffinservice_city=models.CharField(max_length=30, default="")
-    tiffinservice_area=models.CharField(max_length=120, default="")
-    tiffinservice_address=models.CharField(max_length=120, default="")
-    tiffinservice_pincode=models.IntegerField(default="")
-    tiffinservice_price=models.IntegerField(default="0")
-    tiffinservice_contactnumber=models.IntegerField(default="+91")
-    tiffinservice_mealtype=models.CharField(max_length=120, default="veg")
-    tiffinservice_mealsperday=models.IntegerField(default=3)
-    tiffinservice_description=models.TextField(max_length=500, default="")
-    tiffinservice_images1=models.ImageField(upload_to='display/img/tiffin_service_images' ,default="")
-    tiffinservice_image2=models.ImageField(upload_to='display/img/tiffin_service_images' ,default="")
+class  medical_storesservice(models.Model):
+    medical_storesservice_name=models.CharField(max_length=80, default="")
+    medical_storesservice_state=models.CharField(max_length=30, default="")
+    medical_storesservice_city=models.CharField(max_length=30, default="")
+    medical_storesservice_area=models.CharField(max_length=120, default="")
+    medical_storesservice_address=models.CharField(max_length=120, default="")
+    medical_storesservice_pincode=models.IntegerField(default="")
+    medical_storesservice_price=models.IntegerField(default="0")
+    medical_storesservice_contactnumber=models.IntegerField(default="+91")
+    medical_storesservice_mealtype=models.CharField(max_length=120, default="veg")
+    medical_storesservice_mealsperday=models.IntegerField(default=3)
+    medical_storesservice_description=models.TextField(max_length=500, default="")
+    medical_storesservice_images1=models.ImageField(upload_to='display/img/medical_stores_service_images' ,default="")
+    medical_storesservice_image2=models.ImageField(upload_to='display/img/medical_stores_service_images' ,default="")
     def __str__(self):
-        return self.tiffinservice_name 
+        return self.medical_storesservice_name 
 
 class  laundry(models.Model):
     laundry_name=models.CharField(max_length=80, default="")

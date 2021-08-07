@@ -2,7 +2,7 @@ from django import http
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import user_query,hostel,tiffinservice,laundry,library
+from .models import user_query,hostel,medical_storesservice,laundry,library
 # Create your views here.
 
 def home_page(request):
