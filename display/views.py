@@ -187,7 +187,7 @@ def medical_stores(request):
     if request.method == "GET":
         pincode = request.GET.get('search',"")
         if pincode:
-            all_medical_stores_name = medical_storesservice.objects.filter(medical_storesservice_pincode = pincode)
+            all_medical_stores_name = medical_storesservice.objects.filter(medical_stores_pincode = pincode)
             if all_medical_stores_name:
                 demo = {
                     'medical_stores_list' : all_medical_stores_name,

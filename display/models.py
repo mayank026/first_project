@@ -33,21 +33,21 @@ class hostel(models.Model):
         return self.hostel_name +" " + self.hostel_area 
 
 class  medical_storesservice(models.Model):
-    medical_storesservice_name=models.CharField(max_length=80, default="")
-    medical_storesservice_state=models.CharField(max_length=30, default="")
-    medical_storesservice_city=models.CharField(max_length=30, default="")
-    medical_storesservice_area=models.CharField(max_length=120, default="")
-    medical_storesservice_address=models.CharField(max_length=120, default="")
-    medical_storesservice_pincode=models.IntegerField(default="")
-    medical_storesservice_price=models.IntegerField(default="0")
-    medical_storesservice_contactnumber=models.IntegerField(default="+91")
-    medical_storesservice_mealtype=models.CharField(max_length=120, default="veg")
-    medical_storesservice_mealsperday=models.IntegerField(default=3)
-    medical_storesservice_description=models.TextField(max_length=500, default="")
-    medical_storesservice_images1=models.ImageField(upload_to='display/img/medical_stores_service_images' ,default="")
-    medical_storesservice_image2=models.ImageField(upload_to='display/img/medical_stores_service_images' ,default="")
+    medical_stores_name=models.CharField(max_length=80, default="")
+    medical_stores_state=models.CharField(max_length=30, default="")
+    medical_stores_city=models.CharField(max_length=30, default="")
+    #medical_storesservice_area=models.CharField(max_length=120, default="")
+    medical_stores_address=models.CharField(max_length=120, default="")
+    medical_stores_pincode=models.IntegerField(default="")
+    medical_stores_timing=models.CharField(max_length=30, default="")
+    medical_stores_contactnumber=models.IntegerField(default="+91")
+    medical_stores_medicinetype=models.CharField(max_length=120, default="")
+   # medical_storesservice_mealsperday=models.IntegerField(default=3)
+    #medical_storesservice_description=models.TextField(max_length=500, default="")
+    medical_stores_images1=models.ImageField(upload_to='display/img/medical_stores_service_images' ,default="")
+    medical_stores_image2=models.ImageField(upload_to='display/img/medical_stores_service_images' ,default="")
     def __str__(self):
-        return self.medical_storesservice_name 
+        return self.medical_stores_name 
 
 class  laundry(models.Model):
     laundry_name=models.CharField(max_length=80, default="")
