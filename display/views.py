@@ -2,7 +2,7 @@ from django import http
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import user_query,hostel,medical_storesservice,laundry,library
+from .models import user_query,hostel,medical_storesservice,laundry,library,laboratory
 # Create your views here.
 
 def home_page(request):
@@ -208,8 +208,61 @@ def medical_stores(request):
     return render(request,"display/medical_stores.html",demo2)
     
 
-def misc(request):
-    return render(request, "display/misc.html")
+
+
+def laboratoryfun(request):
+    if request.method == "GET":
+        pincode = request.GET.get('pincode',"")
+        city=request.GET.get('city',"")
+        bloodtest= request.GET.get('bloodtest',"off")
+        ctscan = request.GET.get('ctscan',"off")
+        xray = request.GET.get('xray',"off")
+        corona= request.GET.get('corona',"off")
+        all_laboratory_name = laboratory.objects.all()
+        if pincode:
+            all_laboratory_name = all_laboratory_name.filter(laboratory_pincode = pincode)
+            if not all_laboratory_name :
+                return render(request,"display/pincode_not_found.html") 
+        if bloodtest == "on":
+            all_laboratory_name = all_laboratory_name.filter(laboratory_bloodtest=1)
+        if ctscan == "on":
+            all_laboratory_name = all_laboratory_name.filter(laboratory_ctscan=1)
+        if xray== "on":
+            all_laboratory_name = all_laboratory_name.filter(laboratory_xray=1)
+        if corona == "on":
+            all_laboratory_name = all_laboratory_name.filter(laboratory_corona=1)
+        if bloodtest=="off" and ctscan=="off" and xray=="off" and corona=="off" and pincode=="":
+            all_laboratory_name =laboratory.objects.all()
+        if city!='':
+            all_laboratory_name = all_laboratory_name.filter(laboratory_city__exact = city)
+        if not all_laboratory_name:
+            return render(request,"display/pincode_not_found.html")
+        demo = {
+                    'laboratory_list' : all_laboratory_name,
+                    'pincode': pincode,
+                    'city': city
+                }
+        return render(request,"display/laboratory.html",demo)
+    else:
+        all_laboratory_name = laboratory.objects.all()
+        demo2 = {
+                'laboratory_list' : all_laboratory_name,
+        }
+    return render(request,"display/laboratory.html",demo2)
+
+
+def laboratory_description_page(request, laboratory_id):
+
+     laboratory_detail = laboratory.objects.filter(pk=laboratory_id)
+     if laboratory_detail:
+        demo = {
+                    'laboratory_list' : laboratory_detail,
+                }
+        return render(request,"display/description_page_lab.html",demo)
+     else:
+          response = "laboratory with id=" + str(id) + " not found."
+          return HttpResponse(response)
+
 
 def laundary(request):
     if request.method == "GET":
