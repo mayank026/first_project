@@ -10,6 +10,26 @@ class user_query(models.Model):
 
     def __str__(self):
         return self.user_name + " " + self.user_email
+
+
+class laboratory(models.Model):
+    laboratory_name=models.CharField(max_length=120, default="")
+    laboratory_state=models.CharField(max_length=30, default="Bihar")
+    laboratory_city=models.CharField(max_length=30, default="Muzaffarpur")
+    laboratory_area=models.CharField(max_length=120, default="Juran Chhapra")
+    laboratory_pincode=models.IntegerField(default="110054")
+    laboratory_address=models.CharField(max_length=120, default="Muzaffarpur")
+    laboratory_contactnumber=models.IntegerField(default="+91")
+    laboratory_bloodtest=models.IntegerField(default="1")
+    laboratory_ctscan=models.IntegerField(default="1")
+    laboratory_rent=models.IntegerField(default="500")
+    laboratory_xray=models.IntegerField(default="1")
+    laboratory_corona=models.IntegerField(default="1")  
+    laboratory_description=models.TextField(max_length=500, default="This lab is certified  byCAP (College of American Pathologists) and Certified by ISO 9001 (International Organization of Standardization).")
+    laboratory_images1=models.ImageField(upload_to='display/img/laboratory_images',default="" )
+    laboratory_image2=models.ImageField(upload_to='display/img/laboratory_images', default="" )
+    def __str__(self):
+        return self.laboratory_name +" " + self.laboratory_area         
 class hostel(models.Model):
     hostel_name=models.CharField(max_length=120, default="")
     hostel_state=models.CharField(max_length=30, default="Delhi")

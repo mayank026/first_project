@@ -8,16 +8,12 @@
     box-sizing: border-box;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    
 }
-
 body{
     margin: 0px;
     padding: 0px;
     background-color: #fff;
 }
-
-
 
 .remaining{
     background: #F0FFFF;
@@ -30,202 +26,118 @@ body{
     font-size: 30px;
 }
 
-
-.our_services{
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 100px;
-}
-
-.our_services h1{
-    text-transform: uppercase;
-    font-family: 'Mulish', sans-serif;
-    text-align: center;
-}
-@media screen and (max-width:1000px){
-    .services{
-        
-        max-width: 100%;
-        margin: 0 auto;
-        font-family: 'Mulish', sans-serif;
-        align-items: center;
-        justify-content: center;
-        
-        padding: 50px;
-        }
-        .services h3{
-            padding-top: 0;
-        }
-        .rental{
-            transform: scale(0.7);
-            justify-content:space-between ;
-            padding: 20px;
-            transition: 0.3s;
-        }
-        .rental img{
-            width:100%;
-            object-fit: cover;
-            object-position: top;
-            height:35vh;
-        }
-        .rental h3{
-            text-align: center;
-        }
-        .rental:hover{
-            transform: scale(0.9);
-            z-index: 2;
-            box-shadow: 2px 3px 3px grey;
-            border-radius: 15px;
-        }
-        .rental a{
-            color: inherit;
-            text-decoration: none;
-        }
-    .medical_stores{
-        transform: scale(0.7);
-        justify-content:center ;
-        padding: 20px;
-        margin-top: 10px;
-        transition: 0.3s;
-    }
-    .medical_stores img{
-        display: block;
-        width: 65%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .medical_stores h3{
-        text-align: center;
-    }
-    .medical_stores:hover{
-        transform: scale(0.9);
-        z-index: 2;
-        box-shadow: 2px 3px 3px grey;
-        border-radius: 15px;
-    }
-    .medical_stores a{
-        color: inherit;
-        text-decoration: none;
-    }
-    .misc{
-        transform: scale(0.7);
-        justify-content:center ;
-        padding: 20px;
-        margin-top: 25px;
-        transition: 0.3s;
-    }
-    .misc img{
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-    .misc h3{
-        text-align: center;
-    }
-    .misc:hover{
-        transform: scale(0.9);
-        z-index: 2;
-        box-shadow: 2px 3px 3px grey;
-        border-radius: 15px;
-    }
-    .misc a{
-        color: inherit;
-        text-decoration: none;
-    }
-}
-@media screen and (min-width:1000px)
-{
-    .services{
+.container{
     display: flex;
     max-width: 100%;
     margin: 0 auto;
-    font-family: 'Nunito Sans', sans-serif;
-    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    align-items: flex-start;
     justify-content: center;
-    
     padding: 50px;
-    }
-    .services h3{
-        padding-top: 0;
-    }
-    .rental{
-        flex-basis: 33%;
-        justify-content:space-between ;
-        padding: 20px;
-        transition: 0.3s;
-    }
-    .rental img{
-        width:100%;
-        object-fit: cover;
-        object-position: top;
-        height:35vh;
-    }
-    .rental h3{
-        text-align: center;
-    }
-    .rental:hover{
-        transform: scale(1.1);
-	    z-index: 2;
-        box-shadow: 2px 3px 3px grey;
-        border-radius: 15px;
-    }
-    .rental a{
-        color: inherit;
-        text-decoration: none;
-    }
-.medical_stores{
-    flex-basis: 33%;
-    justify-content:center ;
-    padding: 20px;
+    height: 100%;
+}
+.left{
+    width:25%;
+    
+    border-radius: 10px;
+    height: 100%;
+    text-align: left;
+    padding: 10px;
+}
+input[type="checkbox"]
+{
+    vertical-align: middle;
+}
+.field {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 7px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+.field:active, .field:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.field:checked {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+.field:checked:after {
+	content: '\2714';
+	font-size: 10px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #99a1a7;
+}
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.left h5{
+    display: inline;
+    padding:5px;
+    margin:0;
+    font-weight: 400;
+}
+.submit{
     margin-top: 10px;
-    transition: 0.3s;
-}
-.medical_stores img{
+    width:50%;
     display: block;
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0.2rem 0.5rem;
+	background-color: #fafafa;
+	color: #333;
+	font-size: 0.8rem;
+	border: none;
+    border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
 }
-.medical_stores h3{
-    text-align: center;
+.submit:hover{
+	background-color: rgba(0, 0, 0, 0.1);
 }
-.medical_stores:hover{
-    transform: scale(1.1);
-	z-index: 2;
-    box-shadow: 2px 3px 3px grey;
+.right{
+    width: 75%;
+    height: 100%;
+}
+.laboratory_details{
+    display:flex;
+    height: 100%;
+    border: 1px solid #e0e0e0;
+    margin: 10px;
     border-radius: 15px;
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.15);
+    padding: 10px;
 }
-.medical_stores a{
-    color: inherit;
-    text-decoration: none;
+.laboratory_image{
+    width:40%;
+    padding: 0 15px;
 }
-.misc{
-    flex-basis: 33%;
-    justify-content:center ;
-    padding: 20px;
-    margin-top: 25px;
-    transition: 0.3s;
-}
-.misc img{
-    width: 100%;
+.laboratory_image img{
+    width:100%;
     object-fit: cover;
     object-position: center;
+    height: 200px;
 }
-.misc h3{
+.laboratory_detail{
+    width:80%;
+    line-height: 25px;
+    font-size:small;
+
+}
+.not_found{
+    font-family: 'Mulish', sans-serif;
+    padding: 40px;
+    margin:40px;
     text-align: center;
 }
-.misc:hover{
-    transform: scale(1.1);
-	z-index: 2;
-    box-shadow: 2px 3px 3px grey;
-    border-radius: 15px;
-}
-.misc a{
-    color: inherit;
-    text-decoration: none;
-}
-}
+
 
 
 .footer{
