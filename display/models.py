@@ -30,27 +30,30 @@ class laboratory(models.Model):
     laboratory_image2=models.ImageField(upload_to='display/img/laboratory_images', default="" )
     def __str__(self):
         return self.laboratory_name +" " + self.laboratory_area         
-class hostel(models.Model):
-    hostel_name=models.CharField(max_length=120, default="")
-    hostel_state=models.CharField(max_length=30, default="Delhi")
-    hostel_city=models.CharField(max_length=30, default="Delhi")
-    hostel_area=models.CharField(max_length=120, default="Civil Lines")
-    hostel_pincode=models.IntegerField(default="110054")
-    hostel_address=models.CharField(max_length=120, default="Civil Lines")
-    hostel_rent=models.IntegerField(default="6000")
-    hostel_deposit=models.IntegerField(default="5000")
-    hostel_contactnumber=models.IntegerField(default="+91")
-    hostel_mess=models.IntegerField(default="1")
-    hostel_mealtype=models.CharField(max_length=120, default="veg")
-    hostel_ac=models.IntegerField(default="1")
-    hostel_vistorentry=models.IntegerField(default="1")
-    hostel_watercooler=models.IntegerField(default="1")
-    hostel_roomcleaning=models.IntegerField(default="1")  
-    hostel_description=models.TextField(max_length=500, default="veg food allowed, A.C provided, washing machine available, iron availble, Geyser provided")
-    hostel_images1=models.ImageField(upload_to='display/img/hostel_images',default="" )
-    hostel_image2=models.ImageField(upload_to='display/img/hostel_images', default="" )
+class docs(models.Model):
+    docs_name=models.CharField(max_length=120, default="")
+    docs_state=models.CharField(max_length=30, default="Delhi")
+    docs_city=models.CharField(max_length=30, default="Delhi")
+    docs_area=models.CharField(max_length=120, default="Civil Lines")
+    docs_pincode=models.IntegerField(default="110054")
+    docs_address=models.CharField(max_length=120, default="Civil Lines")
+    docs_fee=models.IntegerField(default="1000")
+    docs_timing=models.CharField(max_length=120, default="10:00 AM-4:00 PM")
+   # docs_deposit=models.IntegerField(default="5000")
+    docs_contactnumber=models.IntegerField(default="+91")
+    #docs_mess=models.IntegerField(default="1")
+    #docs_mealtype=models.CharField(max_length=120, default="veg")
+    docs_Physician=models.IntegerField(default="1")
+    docs_Dentist=models.IntegerField(default="1")
+    docs_Gynaecologist=models.IntegerField(default="1")
+    docs_Child=models.IntegerField(default="1")
+    docs_Eye=models.IntegerField(default="1")
+    docs_Surgeon=models.IntegerField(default="1")
+    docs_degree=models.TextField(max_length=500, default="MBBS M.D, AIMS Delhi")
+    docs_images1=models.ImageField(upload_to='display/img/hostel_images',default="" )
+    #docs_image2=models.ImageField(upload_to='display/img/hostel_images', default="" )
     def __str__(self):
-        return self.hostel_name +" " + self.hostel_area 
+        return self.docs_name +" " + self.docs_area 
 
 class  medical_storesservice(models.Model):
     medical_stores_name=models.CharField(max_length=80, default="")

@@ -2,7 +2,7 @@ from django import http
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import user_query,hostel,medical_storesservice,laundry,library,laboratory
+from .models import user_query,docs,medical_storesservice,laundry,library,laboratory
 # Create your views here.
 
 def home_page(request):
@@ -141,46 +141,47 @@ def about(request):
 
 def message(request):
     return render(request,"display/message.html")              
-
-def rental(request):
+print("1")
+def doctors(request):
+    
     if request.method == "GET":
         pincode = request.GET.get('pincode',"")
         city=request.GET.get('city',"")
-        ac = request.GET.get('ac',"off")
-        visitor_entry = request.GET.get('visitor_entry',"off")
-        water_cooler = request.GET.get('water_cooler',"off")
-        room_cleaning = request.GET.get('room_cleaning',"off")
-        all_hostel_name = hostel.objects.all()
+        Physician = request.GET.get('Physician',"off")
+        Dentist = request.GET.get('Dentist',"off")
+        Gynaecologist = request.GET.get('Gynaecologist',"off")
+        Eye= request.GET.get('Eye',"off")
+        all_hostel_name = docs.objects.all()
         if pincode:
-            all_hostel_name = all_hostel_name.filter(hostel_pincode = pincode)
+            all_hostel_name = all_hostel_name.filter(docs_pincode = pincode)
             if not all_hostel_name :
                 return render(request,"display/pincode_not_found.html") 
-        if visitor_entry == "on":
-            all_hostel_name = all_hostel_name.filter(hostel_vistorentry=1)
-        if ac == "on":
-            all_hostel_name = all_hostel_name.filter(hostel_ac=1)
-        if water_cooler == "on":
-            all_hostel_name = all_hostel_name.filter(hostel_watercooler=1)
-        if room_cleaning == "on":
-            all_hostel_name = all_hostel_name.filter(hostel_roomcleaning=1)
-        if visitor_entry=="off" and ac=="off" and water_cooler=="off" and room_cleaning=="off" and pincode=="":
-            all_hostel_name = hostel.objects.all()
+        if Physician == "on":
+            all_hostel_name = all_hostel_name.filter(docs_Physician=1)
+        if Dentist == "on":
+            all_hostel_name = all_hostel_name.filter(docs_Dentist=1)
+        if Gynaecologist == "on":
+            all_hostel_name = all_hostel_name.filter(docs_Gynaecologist=1)
+        if Eye == "on":
+            all_hostel_name = all_hostel_name.filter(docs_Eye=1)
+        if Physician=="off" and Dentist=="off" and Gynaecologist=="off" and Eye=="off" and pincode=="":
+            all_hostel_name = docs.objects.all()
         if city!='':
-            all_hostel_name = all_hostel_name.filter(hostel_city__exact = city)
+            all_hostel_name = all_hostel_name.filter(docs_city__exact = city)
         if not all_hostel_name:
             return render(request,"display/pincode_not_found.html")
         demo = {
-                    'hostel_list' : all_hostel_name,
+                    'docs_list' : all_hostel_name,
                     'pincode': pincode,
                     'city': city
                 }
-        return render(request,"display/rental.html",demo)
+        return render(request,"display/doctors.html",demo)
     else:
-        all_hostel_name = hostel.objects.all()
+        all_hostel_name = docs.objects.all()
         demo2 = {
-                'hostel_list' : all_hostel_name,
+                'docs_list' : all_hostel_name,
         }
-    return render(request,"display/rental.html",demo2)
+    return render(request,"display/doctors.html",demo2)
 
 
 def medical_stores(request):
@@ -313,12 +314,12 @@ def lib(request):
     return render(request,"display/library.html",demo2)
 
 
-def hostel_description_page(request, hostel_id):
+def doctors_description_page(request, doctors_id):
 
-    hostel_detail = hostel.objects.filter(pk=hostel_id)
+    hostel_detail = docs.objects.filter(pk=doctors_id)
     if hostel_detail:
         demo = {
-                    'hostel_list' : hostel_detail,
+                    'docs_list' : hostel_detail,
                 }
         return render(request,"display/description_page.html",demo)
     else:

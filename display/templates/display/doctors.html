@@ -12,8 +12,8 @@
 <body>
 <div class="topnav" id="myTopnav">
 <a class="active" href="{% url 'home' %}"><i class="fa fa-home" style="vertical-align: middle;"></i>&nbsp;Home</a>
-  <a class="active" href="{% url 'medical_stores' %}">Tiffin Services</a>
-  <a class="active" href="{% url 'misc' %}">Miscellaneous</a>
+  <a class="active" href="{% url 'medical_stores' %}">Medical Services</a>
+  <a class="active" href="{% url 'laboratoryfun' %}">Laboratory</a>
   <a class="active" href="{% url 'aboutus' %}">About us</a>
   <div  class="topnav-right">
      {% if user.is_authenticated %}
@@ -34,69 +34,75 @@
             Choose from the following options
         </div>
     
-    
-    
-    
-    
-    
+ 
     <div class="container">
         <div class="left">
             
             <h3>
                 Select Filters
             </h3>
-            <form method="GET" action="{% url 'rental' %}">
+            <form method="GET" action="{% url 'doctors' %}">
                 <input name="city" id="search" class="form" type="search" placeholder="type city name" aria-label="Search" value="{{city}}">
                 <input name="pincode" id="search" class="form" type="search" placeholder="type pincode" aria-label="Search" value="{{pincode}}">
             <h4>
                 Facilities
             </h4>               
-            <form method="GET" action="{% url 'rental'  %}">
+            <form method="GET" action="{% url 'doctors'  %}">
                 <label for="area1"></label>
                 <input id="area1" type="checkbox" class="field" name="ac"
-                ><h5>AC</h5>
+                ><h5>Physician</h5>
                 <br>
                 <label for="area2"></label>
-                <input id="area2" type="checkbox" class="field" name="visitor_entry"
-                ><h5>Visitor Entry</h5>
+                <input id="area2" type="checkbox" class="field" name="Physician"
+                ><h5>Dentist</h5>
                 <br>
                 <label for="area3"></label>
-                <input id="area3" type="checkbox" class="field" name="water_cooler"
-                ><h5>Water Cooler</h5>
+                <input id="area3" type="checkbox" class="field" name="Gynaecologist"
+                ><h5>Gynaecologist</h5>
                 <br>
                 <label for="area4"></label>
-                <input id="area4" type="checkbox" class="field" name="room_cleaning"
-                ><h5>Room Cleaning</h5>
+                <input id="area4" type="checkbox" class="field" name="Child"
+                ><h5>Child Specialist</h5>
+                <br>
+                 <label for="area5"></label>
+                <input id="area5" type="checkbox" class="field" name="Eye"
+                ><h5>Eye Specialist</h5>
+                <br>
+                 <label for="area6"></label>
+                <input id="area6" type="checkbox" class="field" name="Surgeon"
+                ><h5>Surgeon</h5>
+                <br>
                 <input type="submit" value="Apply" class="submit">
             </form>
         </div>
         <div class="right">
             
-            {% for hostel in hostel_list %}
+            {% for docs in docs_list %}
                   {% if user.is_authenticated %}                      
-			<a href="{% url 'hosteldesc' hostel.pk %}"  style="text-decoration: none;color:#404040">
+			<a href="{% url 'doctorsdesc' docs.pk %}"  style="text-decoration: none;color:#404040">
             {%else%}
                 <a href="{% url 'message' %}"  style="text-decoration: none;color:#404040">
                 {%endif%}
                 <div class="hostel_details">
                     <div class="hostel_image">
-                        <img src='/media/{{hostel.hostel_images1}}' class="hostel_image" alt="">
+                        <img src='/media/{{docs.docs_images1}}' class="hostel_image" alt="">
                     </div>
-                    <div class="hostel_detail">
+                    <div class="docs_detail">
 
-                    
+                
                         <h2>
-                            {{ hostel.hostel_name }}
+                            {{ docs.docs_name }}
                         </h2>
                         <h4>
-                            Monthly Rent: {{ hostel.hostel_rent }} Intial Deposit: {{ hostel.hostel_deposit }}
+                            {{ docs.docs_degree }}
                         </h4>
                         <h4>
-                            {{ hostel.hostel_address }} 
+                            Timing: {{ docs.docs_timing }} 
                         </h4>
-                        <h5>
-                            {{ hostel.hostel_description }}
-                        </h5>
+                        <h4>
+                            {{ docs.docs_address }} 
+                        </h4>
+                        
                     </div>
                 </div>
 		    {% endfor %}
